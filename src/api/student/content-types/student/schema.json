@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "subjects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subject.subject",
+      "mappedBy": "students"
+    },
+    "section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::section.section",
+      "inversedBy": "students"
+    },
+    "mapping": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mapping.mapping",
+      "inversedBy": "students"
+    },
+    "StudentID": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "Sex": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

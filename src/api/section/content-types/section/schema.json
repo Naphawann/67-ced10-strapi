@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sections",
+  "info": {
+    "singularName": "section",
+    "pluralName": "sections",
+    "displayName": "Section",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SecNo": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student",
+      "mappedBy": "section"
+    },
+    "mapping": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mapping.mapping",
+      "inversedBy": "sections"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::teacher.teacher",
+      "inversedBy": "sections"
+    },
+    "subject": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subject.subject",
+      "inversedBy": "section"
+    }
+  }
+}
